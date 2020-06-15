@@ -7,5 +7,6 @@ class HolidayModelKotlin{
 
     var date:String? = null
     var name:String? = null
+    var thumbnail:String? = null
 
 }

@@ -1,4 +1,4 @@
-package com.github.easymvvm.java;
+package com.github.easymvvm.java.view;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -6,18 +6,25 @@ import android.view.View;
 import android.widget.Toast;
 import com.github.easymvvm.R;
 import com.github.easymvvm.commons.MyApplication;
+
 import com.github.easymvvm.databinding.ActivityHolidayBinding;
+import com.github.easymvvm.java.view_model.HolidayViewModel;
+import com.github.easymvvm.java.click_listner.MClickListener;
+import com.github.easymvvm.java.adapter.HolidayAdapter;
+import com.github.easymvvm.java.pojo_class.HolidayModel;
+
 import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-public class HolidayActivity extends AppCompatActivity {
+public class HolidayActivity extends AppCompatActivity implements MClickListener {
 
     final String TAG = getClass().getSimpleName();
     ActivityHolidayBinding binding;
     HolidayAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +54,21 @@ public class HolidayActivity extends AppCompatActivity {
     }
 
     void initUI(){
+
         binding.rvHolidayList.setHasFixedSize(true);
         binding.rvHolidayList.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new HolidayAdapter();
+
+        adapter = new HolidayAdapter(this);
         binding.rvHolidayList.setAdapter(adapter);
     }
 
+
+    @Override
+    public void mClick1(HolidayModel holidayModels) {
+
+        Toast.makeText(getApplicationContext(), ""+holidayModels.getName(),  Toast.LENGTH_SHORT).show();
+        Log.e("res",""+holidayModels.getName());
+        Log.e("res",""+holidayModels.getDate());
+    }
 }

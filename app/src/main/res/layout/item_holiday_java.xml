@@ -8,6 +8,7 @@
         android:layout_marginStart="6dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="6dp"
+        android:onClick="@{()->act.mClick1(model)}"
         card_view:cardCornerRadius="4dp"
         card_view:cardUseCompatPadding="true">
 
@@ -16,6 +17,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/iv_dish"
+                imageURL="@{model.thumbnail}"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:id="@+id/tv_date"
@@ -35,8 +44,13 @@
     </androidx.cardview.widget.CardView>
 
     <data>
+
         <variable
             name="model"
-            type="com.github.easymvvm.java.HolidayModel" />
+            type="com.github.easymvvm.java.pojo_class.HolidayModel" />
+
+        <variable
+            name="act"
+            type="com.github.easymvvm.java.view.HolidayActivity" />
     </data>
 </layout>

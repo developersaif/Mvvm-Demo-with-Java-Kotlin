@@ -12,7 +12,7 @@ import com.github.easymvvm.R
 import com.github.easymvvm.commons.MyApplication
 import kotlinx.android.synthetic.main.activity_holiday.*
 
-class HolidayActivityKotlin : AppCompatActivity() {
+class HolidayActivityKotlin : AppCompatActivity(),MClickListenerKotlin {
 
     val TAG = javaClass.simpleName
     lateinit var holidayAdapterKotlin: HolidayAdapterKotlin
@@ -51,9 +51,14 @@ class HolidayActivityKotlin : AppCompatActivity() {
         rvHolidayList.setLayoutManager(layoutManager)
         rvHolidayList.setItemAnimator(DefaultItemAnimator())
 
-        holidayAdapterKotlin = HolidayAdapterKotlin()
+        holidayAdapterKotlin = HolidayAdapterKotlin(this)
         rvHolidayList.adapter = holidayAdapterKotlin
 
+    }
+
+    override fun mClick1(holidayModels: HolidayModelKotlin) {
+        Log.e("res", "" + holidayModels.name)
+        Log.e("res", "" + holidayModels.date)
     }
 
 }

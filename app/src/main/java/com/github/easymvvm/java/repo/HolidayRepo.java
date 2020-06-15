@@ -1,9 +1,10 @@
-package com.github.easymvvm.java;
+package com.github.easymvvm.java.repo;
 
 import android.util.Log;
 
 import com.github.easymvvm.commons.ApiInterface;
 import com.github.easymvvm.commons.MyApplication;
+import com.github.easymvvm.java.pojo_class.HolidayModel;
 
 import java.util.List;
 

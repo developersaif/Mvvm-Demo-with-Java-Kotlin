@@ -4,6 +4,11 @@ import android.app.Application;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.widget.ImageView;
+
+import androidx.databinding.BindingAdapter;
+
+import com.bumptech.glide.Glide;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -51,6 +56,12 @@ public class MyApplication extends Application {
                     .build();
         }
         return retrofit;
+    }
+
+
+    @BindingAdapter({"imageURL"})
+    public static void loadImage(ImageView view, String imageUrl) {
+        Glide.with(view.getContext()).load(imageUrl).into(view);
     }
 
 }

@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.github.easymvvm.databinding.ActivityMainBinding;
-import com.github.easymvvm.java.HolidayActivity;
+import com.github.easymvvm.java.view.HolidayActivity;
 import com.github.easymvvm.kotlin.HolidayActivityKotlin;
 
 public class MainActivity extends AppCompatActivity {
